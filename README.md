@@ -3,6 +3,12 @@ Pygame and Pymunk simulation of a double pendulum
 
 Requires the installation of python3, pygame and pymunk. (see requirements.txt)
 
+Controls:
+  Change pendulum position: left click
+  Pause/resume: Spacebar
+  Enable/disable trails: t
+  Clear pendulum trails: c
+  Change pendulum draw mode: m
 
 
 
