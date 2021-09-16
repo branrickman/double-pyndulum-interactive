@@ -111,14 +111,14 @@ class Pendulum:
             for i in range(len(self.pend_point2.position_log)):
                 pygame.draw.circle(screen, self.pend_point2.color, self.pend_point2.position_log[i],
                                    self.pend_point2.position_trail_radius)
-        if self.mode == 1:
+        if self.mode:
             self.pend_conn1.draw()
             self.pend_conn2.draw()
         self.pend_point1.draw()
         self.pend_point2.draw()
 
 
-pendulum1 = Pendulum(200, 500, 300, 700, number=1, mode=1)
+pendulum1 = Pendulum(200, 500, 300, 700, number=1, mode=True)
 
 pendulum_group = [pendulum1]
 
@@ -151,6 +151,10 @@ while run:
                 for p in pendulum_group:
                     p.pend_point1.position_log = []
                     p.pend_point2.position_log = []
+                print(f'Pendulum trails cleared')
+            if event.key == pygame.K_m:
+                for p in pendulum_group:
+                    p.mode = not p.mode
                 print(f'Pendulum trails toggled')
         mouse_event = pygame.mouse.get_pressed()
         if mouse_event[0]:
