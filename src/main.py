@@ -104,9 +104,6 @@ class Pendulum:
         self.draw_trail = True
 
     def draw(self):
-        if self.mode == 1:
-            self.pend_conn1.draw()
-            self.pend_conn2.draw()
         if self.draw_trail:
             for i in range(len(self.pend_point1.position_log)):
                 pygame.draw.circle(screen, self.pend_point1.color, self.pend_point1.position_log[i],
@@ -114,22 +111,12 @@ class Pendulum:
             for i in range(len(self.pend_point2.position_log)):
                 pygame.draw.circle(screen, self.pend_point2.color, self.pend_point2.position_log[i],
                                    self.pend_point2.position_trail_radius)
-
+        if self.mode == 1:
+            self.pend_conn1.draw()
+            self.pend_conn2.draw()
         self.pend_point1.draw()
         self.pend_point2.draw()
 
-
-# TODO scrap all of this fn, replace with modifying the class properties instead
-# def initialize_pendulums():
-#     global pendulum1
-#     pendulum1 = Pendulum(200, 500, 300, 500, 0)
-#     global pendulum2
-#     pendulum2 = Pendulum(200, 500, 390, 510, 1)
-#     global pendulum_group
-#     pendulum_group = []
-#     pendulum_group = [pendulum1, pendulum2]
-#
-# #initialize_pendulums()
 
 pendulum1 = Pendulum(200, 500, 300, 700, number=1, mode=1)
 
